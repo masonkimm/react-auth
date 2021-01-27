@@ -30,3 +30,24 @@ root> auth-react>> touch .env.local
 ## 4)
 
 root> auth-react>> touch firebase.js
+
+## 5)
+
+NPM installs
+
+```
+npm i
+* firebase
+* boostrap
+* react-bootstrap
+```
+
+## 6)
+
+root> components> Signup.js
+
+- import packages
+
+## 7)
+
+root> contexts> AuthContext.js
