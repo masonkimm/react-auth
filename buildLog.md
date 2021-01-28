@@ -40,6 +40,7 @@ npm i
 * firebase
 * boostrap
 * react-bootstrap
+* react-router-dom
 ```
 
 ## 6)
@@ -51,3 +52,13 @@ root> components> Signup.js
 ## 7)
 
 root> contexts> AuthContext.js
+
+## 8)
+
+firebase> authentication> user > to check for registered users
+
+## 9)
+
+react-router-dom>> app.js>>
+
+- import BrowerRouter as Router, Switch, and Route
