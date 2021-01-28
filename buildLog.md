@@ -61,4 +61,4 @@ firebase> authentication> user > to check for registered users
 
 react-router-dom>> app.js>>
 
-- import BrowerRouter as Router, Switch, and Route
+- import BrowerRouter as Router, Switch, and Route, Link, useHistory
