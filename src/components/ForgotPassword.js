@@ -1,25 +1,26 @@
 import React, { useRef, useState } from 'react';
 import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function ForgotPassword() {
   const emailRef = useRef();
-  const { login } = useAuth();
+  const { resetPassword } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
+  const [message, setMessage] = useState('');
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     try {
+      setMessage('');
       setError('');
       setLoading(true);
-      // await login(emailRef.current.value, passwordRef.current.value);
-      history.push('/');
+      await resetPassword(emailRef.current.value);
+      setMessage('Check your inbox for further instructions');
     } catch {
-      setError('Failed to login');
+      setError('Failed to reset password');
     }
     setLoading(false);
   }
@@ -31,6 +32,7 @@ export default function ForgotPassword() {
           <h2 className="text-center mb-4">Reset Password</h2>
 
           {error && <Alert variant="danger">{error}</Alert>}
+          {message && <Alert variant="success">{message}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
@@ -42,10 +44,7 @@ export default function ForgotPassword() {
             </Button>
           </Form>
           <div className="w-100 text-center mt-2">
-            <Link to="/login" className="btn btn-danger w-100">
-              {' '}
-              Cancel{' '}
-            </Link>
+            <Link to="/login"> Back to Log In </Link>
           </div>
         </Card.Body>
       </Card>
